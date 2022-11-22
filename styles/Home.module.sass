@@ -1,0 +1,581 @@
+@import "./_breakpoints"
+
+  
+.container
+  background-image: url(../public/background.png)
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  background-attachment: fixed
+  color: white
+  height: 100vh
+  display: flex
+  align-items: center
+  justify-content: center
+  @include breakpoint(md)
+    background-image: url(../public/background-mobile.png)
+
+        
+
+
+.body_container
+  width: 98vw
+  height: 98vh
+  border: .5vh solid white
+  position: relative
+
+.MainTitle
+  position: absolute
+  margin: 3vw
+  font-size: 3vw
+  letter-spacing: -0.06vh
+  @include breakpoint(md)
+    display: none
+
+.SideLine 
+  position: absolute
+  top: 20vh
+  right: -8vh
+  transform: rotate(-90deg)
+  font-style: normal
+  font-size: 2vh
+  cursor: pointer
+  @include breakpoint(md)
+    display: none
+
+
+.RefsWrapper 
+  position: absolute
+  width: 15vw
+  display: flex
+  justify-content: space-between
+  bottom: 3vh
+  left: 6vh
+  z-index: 200
+  @include breakpoint(md)
+    scale: .7
+    height: 25vh
+    flex-direction: column
+    bottom: -1vh
+    left: 1vw
+  @include breakpoint(md-sm)
+    scale: .7
+    flex-direction: column
+    bottom: -1vh
+    left: 3vw
+  a 
+    width: 6vh
+    height: 6vh
+    &:hover
+      .RefImg
+        transform: translateY(-2vh)
+        color: rgba(245, 69, 0, 0.884)   
+
+.RefImg 
+  color: #ffffff
+  width: 6vh
+  height: 6vh
+  transition: color ease-in-out 0.1s, bottom 0.1s
+  @include breakpoint(md)
+      
+  @include breakpoint(md-sm)
+      width: 4vh
+      height: 4vh
+
+.ashesWrapper
+  position: absolute
+  left: 0vw
+  top: 0vh
+  width: 100%
+  height: 97vh
+  overflow: hidden
+
+@function multiple-box-shadow ($n) 
+  $value: '#{random(2000)}px #{random(2000)}px #ff9528'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #ff9528'
+
+  @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(250)
+$shadows-medium: multiple-box-shadow(250)
+$shadows-big:    multiple-box-shadow(250)
+    
+#stars
+  width: .3vh
+  height: .3vh
+  border-radius: 9999999px
+  background: transparent
+  box-shadow: $shadows-small
+  animation			: animStar 40s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: .3vh
+    height: .3vh
+    background: transparent
+    box-shadow: $shadows-small
+    
+#stars2
+  width: .4vh
+  height: .4vh
+  border-radius: 9999999px
+  border-radius: 100%
+  background: transparent
+  box-shadow: $shadows-medium
+  animation			: animStar 50s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: .4vh
+    height: .4vh
+    background: transparent
+    box-shadow: $shadows-medium
+    
+#stars3
+  width: .5vh
+  height: .5vh
+  border-radius: 9999999px
+  border-radius: 100%
+  background: transparent
+  box-shadow: $shadows-big
+  animation			: animStar 100s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: .5vh
+    height: .5vh
+    background: transparent
+    box-shadow: $shadows-big
+
+@keyframes animStar
+  from	
+    transform: translateY(0px)
+  to		
+    transform: translateY(-2000px)
+    
+
+.smoke 
+  position: absolute
+  width: 30vw
+  height: 60vh
+  top: 24.4vh
+  left: 34.8vw
+  z-index: 80
+  cursor: pointer
+  @include breakpoint(lg)
+      width: 35vw
+      height: 60vh
+      top: 24.2vh
+      left: 35.2vw
+  @include breakpoint(md)
+      display: none
+  @include breakpoint(md-sm)
+      display: none
+
+
+
+.NameAsImg 
+  position: absolute
+  bottom: 0vh
+  right: 0vw
+  scale: .9
+  @include breakpoint(lg)
+    scale: .7
+    right: -6vw
+    bottom: -2vh
+  @include breakpoint(md)
+    right: -10vw
+    bottom: -2vh
+  @include breakpoint(md-sm)
+    bottom: 0
+    right: -20vw
+    scale: .5
+    width: 100vw
+
+.titles 
+  top: 39vh
+  left: 45vw
+  position: absolute
+  @include breakpoint(md)
+    display: none
+  @include breakpoint(md-sm)
+    
+.ProjectstitleHidden 
+  position: absolute
+  font-size: 3.2vw
+  font-weight: 1000
+  top: 0vh
+  transition: all ease-in-out 0.6s
+  opacity: 0
+
+.ContacttitleHidden 
+  position: absolute
+  font-size: 3.2vw
+  font-weight: 1000
+  top: 0vh
+  left: 0vh
+  transition: all ease-in-out 0.6s
+  opacity: 0
+
+
+.AbouttitleHidden 
+  position: absolute
+  font-size: 3.2vw
+  font-weight: 1000
+  top: 0vh
+  left: 0vh
+  transition: all ease-in-out 0.6s
+  opacity: 0
+
+.Projectstitle 
+  position: absolute
+  font-size: 4vw
+  font-weight: 1000
+  top: -15vw
+  z-index: 70
+  transition: all ease-in-out 0.6s
+  opacity: 0.8
+  cursor: pointer
+  &:hover
+    transform: translateX(1vh) translateY(-2vh)
+    z-index: 80
+    opacity: 1
+    scale: 1.3
+  @include breakpoint(lg)
+    top: -27vh
+  @include breakpoint(md)
+    font-size: 2vw
+    top: -32vw
+  @include breakpoint(md-sm)
+
+.Contacttitle 
+  position: absolute
+  font-size: 4vw
+  font-weight: 1000
+  z-index: 70
+  top: -5vh
+  left: 16vw
+  transition: all ease-in-out 0.6s
+  opacity: 0.8
+  cursor: pointer
+  &:hover
+    transform: translateX(3vh) translateY(-2vh)
+    z-index: 80
+    opacity: 1
+
+  @include breakpoint(lg)
+    left: 21vw
+  @include breakpoint(md)
+    font-size: 2vw
+    top: -5vh
+    left: 29vh
+  @include breakpoint(md-sm)
+    //
+
+
+.Abouttitle 
+  position: absolute
+  font-size: 4vw
+  font-weight: 1000
+  left: -16vw
+  top: -1vh
+  z-index: 70
+  transition: all ease-in-out 0.6s
+  opacity: 0.8
+  cursor: pointer
+  &:hover
+    transform: translateX(-3vh) translateY(-2vh)
+    z-index: 80
+    opacity: 1
+  @include breakpoint(lg)
+    left: -18vw
+    top: 1vh
+  @include breakpoint(md)
+    font-size: 2vw
+    left: -31vh
+    top: 0vh
+  @include breakpoint(md-sm)
+    //
+
+
+
+.titlesMobile
+  display: none
+  @include breakpoint(md)
+    font-size: 4vw
+    position: absolute
+    top: 2vh
+    left: 4vw 
+    display: flex
+    flex-direction: column
+  @include breakpoint(md-sm)
+    font-size: 6vw
+
+.arrowBack  
+  position: absolute
+  top: 6vh
+  left: 3vw 
+  scale: 2
+
+
+.AbouttitleMobileInActive
+  transition: all ease-in-out .8s
+.ProjectstitleMobileInActive
+  transition: all ease-in-out .8s 
+.ContacttitleMobileInActive
+  transition: all ease-in-out .8s 
+
+
+.AbouttitleMobileActive
+  transition: all ease-in-out .8s 
+  transform: translateX(33vw) translateY(-1.5vh)
+  font-size: 8vw
+.ProjectstitleMobileActive
+  transition: all ease-in-out .8s 
+  transform: translateX(31vw) translateY(-14vh)
+  font-size: 8vw
+.ContacttitleMobileActive
+  transition: all ease-in-out .8s
+  transform: translateX(32vw) translateY(-26.3vh)
+  font-size: 8vw
+
+.titlesMobileHidden
+  opacity: 0
+  transform: translateX(-35vw)
+  transition: all ease-in-out .5s
+
+.PageIsLoad 
+  position: absolute
+  display: flex
+  flex-direction: column
+  top: 10vh
+  width: 80vw
+  height: 75vh
+  z-index: 100
+  margin: 10vh
+  animation: pageLoader 0.5s linear
+  @include breakpoint(md)
+    width: auto
+    height: auto
+    margin: 0
+    top: 14vh
+
+    
+
+@keyframes pageLoader 
+  0% 
+    opacity: 0
+  100% 
+    opacity: 1
+
+.PageTitle 
+  display: flex
+  align-items: center
+  font-size: 6vh
+  font-weight: 1000
+  @include breakpoint(md)
+    display: none
+  
+
+.BackIcon 
+  width: 4vh
+  height: 4vh
+  margin: 0vh 2vh
+  justify-self: flex-start
+  cursor: pointer
+  &:hover
+    color: rgba(255, 115, 0, 0.945)
+
+
+.AboutContent 
+  font-size: 2.5vh
+  font-weight: 1000
+  margin: 4vh 8vh
+  letter-spacing: 0.25vh
+  @include breakpoint(md)
+    font-size: 2.5vh
+  @include breakpoint(md-sm)
+    font-size: 2vh
+    margin: 2vh 12vw
+
+.ProjectList 
+  overflow-wrap: break-word
+  margin: 0vh 3vh
+  list-style: none
+  font-size: 3vh
+  font-weight: 500
+
+
+.ProjectListItem 
+  margin: 2vh 0vh
+  cursor: pointer
+  transition: font-size 0.1s ease-in-out
+  padding: 2vh
+  font-size: 3.5vh
+  font-weight: 1000
+  width: fit-content
+
+
+.ProjectListItem:hover 
+  color: rgba(255, 115, 0, 0.945)
+  font-weight: 1000
+
+.Hidden 
+  display: none
+
+
+.test 
+  margin-top: 2vh
+  display: flex
+  flex-direction: column
+
+
+.ProjectTitle 
+  display: flex
+  align-items: center
+
+
+.ProjectLink 
+  font-size: 4vh
+  font-weight: 1000
+  text-decoration: none
+  color: white
+
+.ProjectLink:hover 
+  color: rgba(255, 115, 0, 0.945)
+
+
+.link 
+  transform: rotate(90deg)
+  width: 4vh
+  height: 3vh
+  cursor: pointer
+
+
+.ProjectDetails 
+  margin-top: 2vh
+  margin-left: 9vh
+  font-size: 2vh
+  font-weight: 1000
+  letter-spacing: 0.2vh
+
+.ContactContent 
+  display: flex
+  flex-direction: column
+  font-size: 2vw
+  width: 35vw
+  margin-left: 4.5vw
+  @include breakpoint(md)
+    width: 88vw
+    font-size: 4vw
+    align-items: center
+
+.ContactContent button 
+  width: 30vw
+  height: 5vh
+  font-size: 1.6vw
+  background-color: #ffffff
+  border: none
+  color: rgba(98, 148, 197, 0.7)
+  font-weight: 800
+  cursor: pointer
+  transition: scale 0.5s ease-in-out, background-color 0.5s ease-in-out
+  @include breakpoint(md)
+    width: 85vw
+    font-size: 4vw
+
+.ContactContent button:hover 
+  scale: 1.05
+  background-color: #f3f3f3
+
+.ContactAlso 
+  position: absolute
+  bottom: 10vh
+  left: -6.5vh
+  @include breakpoint(md)
+    bottom: -10vh
+    left: 12vw
+
+
+.UnderContactTitle 
+  letter-spacing: 0.2vh
+  font-size: 2vh
+  font-weight: 1000
+  margin: 2vh 0vh
+  @include breakpoint(md)
+    width: 80vw
+    font-size: 4vw
+
+
+.PersonalInfoInput 
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  width: 30vw
+  margin-top: 3vh
+  @include breakpoint(md)
+    width: 80vw
+    font-size: 4vw
+
+.PersonalInfoInput input 
+  width: 14.5vw
+  height: 4vh
+  border: none
+  background: rgba(98, 148, 197, 0.7)
+  font-size: 1.5vw
+  border: 0.1vh solid #ffffff
+  color: #ffffff
+  @include breakpoint(md)
+    font-size: 3.6vw
+    width: 38vw
+
+.PersonalInfoInput input::placeholder 
+  padding: 0.5vh
+  color: #ffffff
+
+.PersonalInfoInput input:focus 
+  outline: none
+
+.PersonalInfoInput input:focus::placeholder 
+  color: transparent
+
+.MessageInput 
+  width: 30vw
+  height: 20vh
+  margin: 2vh 0vh
+  background-color: aliceblue
+  resize: none
+  background: rgba(98, 148, 197, 0.7)
+  border: 0.1vh solid #ffffff
+  color: #ffffff
+  font-size: 1.5vw
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, sans-serif
+  font-weight: 1000
+  letter-spacing: 0.2vh
+  @include breakpoint(md)
+    font-size: 3.6vw
+    width: 80vw
+
+.MessageInput:focus 
+  outline: none
+
+.MessageInput::placeholder 
+  color: #ffffff
+  font-size: 1.4vw
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, sans-serif
+  letter-spacing: 0.2vh
+  font-weight: 1000
+  padding: 0.5vh
+
+
+.MessageInput:focus::placeholder 
+  color: transparent

@@ -1,8 +1,148 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.sass";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import ashes from "../public/Ashes.png";
+import gorkem from "../public/Gorkem.png";
+import { useEffect, useRef, useState } from "react";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import LinkIcon from "@mui/icons-material/Link";
+import emailjs from "@emailjs/browser";
 
 export default function Home() {
+  const [pageIsLoad, SetpageIsLoad] = useState<undefined | string>("menu");
+  const [ActivePage, SetActivePage] = useState();
+  const [isFormSubmit, SetIsFormSubmit] = useState({
+    activeMessage: false,
+    Message: "",
+  });
+  const ProjectsRef = useRef();
+  const AboutRef = useRef();
+  const ContactRef = useRef();
+
+  const ProjectsRefMobile = useRef();
+  const AboutRefMobile = useRef();
+  const ContactRefMobile = useRef();
+
+  const form = useRef(null);
+  const Email = useRef(null);
+  const Name = useRef(null);
+  const MessageContent = useRef(null);
+
+  useEffect(() => {
+    if (pageIsLoad === "menu") {
+      ProjectsRef.current.className = styles.Projectstitle;
+      AboutRef.current.className = styles.Abouttitle;
+      ContactRef.current.className = styles.Contacttitle;
+    }
+    if (pageIsLoad === "selected") {
+      ProjectsRef.current.className = styles.ProjectstitleHidden;
+      AboutRef.current.className = styles.AbouttitleHidden;
+      ContactRef.current.className = styles.ContacttitleHidden;
+    }
+  }, [pageIsLoad]);
+
+  const AshesClickHandler = () => {
+    if (pageIsLoad === undefined) {
+      SetpageIsLoad("menu");
+    } else {
+      SetpageIsLoad(undefined);
+    }
+  };
+
+  const sendEmailHandler = (e: any) => {
+    e.preventDefault();
+    if (
+      MessageContent.current?.value !== "" &&
+      Name.current?.value !== "" &&
+      Email.current?.value !== ""
+    ) {
+      emailjs
+        .sendForm(
+          "service_gktrxa2",
+          "template_x9bpnrx",
+          form.current,
+          "Fj3Nx-NZLXGUPhan3"
+        )
+        .then(
+          (result: any) => {
+            console.log(result.text);
+          },
+          (error: any) => {
+            console.log(error.text);
+          }
+        );
+      SetIsFormSubmit({
+        activeMessage: true,
+        Message: "Got your mail 😊",
+      });
+      Name.current.value = "";
+      Email.current.value = "";
+      MessageContent.current.value = "";
+    } else if (Name.current?.value === "") {
+      SetIsFormSubmit({
+        activeMessage: true,
+        Message: "Please Enter Your Name or Company Name",
+      });
+    } else if (Email.current?.value === "") {
+      SetIsFormSubmit({
+        activeMessage: true,
+        Message: "Please Enter Valid E-mail",
+      });
+    } else if (MessageContent.current?.value === "") {
+      SetIsFormSubmit({
+        activeMessage: true,
+        Message: "Mail Must Be At Least 10 Character",
+      });
+    }
+  };
+
+  const Projects = [
+    {
+      id: 1,
+      Name: "SplendShop",
+      Link: "https://graceful-flan-8ed3f8.netlify.app/homepage",
+      Details:
+        "SplendShop is a basic e-commercial site that is designed and coded by me. I can tell that journey of becoming a React developer started by coding this web app, so the code may not be that clean but SplendShop is working and it improved me realy good to me.",
+      CodeDetails:
+        "I used ContextAPI, Firebase for authentication, MUI for some components and styles, some libraries for carousel and pagination, I used Local Storage to manage purchase and favorite Items",
+    },
+    {
+      id: 2,
+      Name: "To Do List",
+      Link: "https://enchanting-tapioca-2145c3.netlify.app",
+      Details:
+        "This project was first case of a practicum (Patika - PopUpSmart) that user can Add/Delete/Edit to do list items, mark them as complated and list according to different situations ",
+      CodeDetails:
+        "I used a mockAPI to keep to do list data only, I know that the authentication system was not reliable and accurate because it kept the user data locally, but it was asked to do so in the study.",
+    },
+    {
+      id: 3,
+      Name: "Expense List",
+      Link: "https://jade-baklava-7a2e68.netlify.app",
+      Details:
+        "Expense list is a basic project that user can Add new expenses with a title, amount and date. Then user can check his/her expenses listed and also a Bar Graph of them monthly.",
+      CodeDetails: "",
+    },
+    {
+      id: 4,
+      Name: "Popup Generator",
+      Link: "https://636e3ba16d353d089be6df04--storied-cobbler-6dd078.netlify.app",
+      Details:
+        "This project was final case of a practicum (Patika - PopUpSmart). the logic is providing a enviroment that any user can select a template and customize a popup screen and get the script code of the popup he/she customized",
+      CodeDetails: "",
+    },
+  ];
+
+  const [ProjectDisplayed, SetProjectDisplayed] = useState();
+
+  const ProjectDetailsHandler = (project) => {
+    SetProjectDisplayed(project);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,62 +150,274 @@ export default function Home() {
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+      <div className={styles.body_container}>
+        <div className={styles.MainTitle}>PORTFOLIO</div>
+        <div
+          className={styles.SideLine}
+          onClick={() => {
+            SetActivePage("whyash");
+            SetpageIsLoad(undefined);
+          }}
+        >
+          why website concept is ash?
+        </div>
+        <div className={styles.RefsWrapper}>
+          <a href="https://www.instagram.com/gorkemddrn/">
+            <InstagramIcon className={styles.RefImg} />
           </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://www.linkedin.com/in/gorkemderinalpaslan/">
+            <LinkedInIcon className={styles.RefImg} />
           </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+          <a href="https://github.com/gorkemAlpaslan">
+            <GitHubIcon className={styles.RefImg} />
           </a>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <div className={styles.ashesWrapper}>
+          <div id={styles.stars}></div>
+          <div id={styles.stars2}></div>
+          <div id={styles.stars3}></div>
+        </div>
+        <div>
+          <Image
+            alt="ashes"
+            src={ashes}
+            className={styles.smoke}
+            onClick={AshesClickHandler}
+          />
+        </div>
+        <div className={styles.test}>
+          <Image alt="Name" src={gorkem} className={styles.NameAsImg}></Image>
+        </div>
+        <div className={styles.titles}>
+          <h2
+            className={styles.ProjectstitleHidden}
+            ref={ProjectsRef}
+            onClick={() => {
+              SetActivePage("project");
+              SetpageIsLoad("selected");
+            }}
+          >
+            Projects
+          </h2>
+          <h2
+            className={styles.ContacttitleHidden}
+            ref={ContactRef}
+            onClick={() => {
+              SetActivePage("contact");
+              SetpageIsLoad("selected");
+            }}
+          >
+            Contact
+          </h2>
+          <h2
+            className={styles.AbouttitleHidden}
+            ref={AboutRef}
+            onClick={() => {
+              SetActivePage("about");
+              SetpageIsLoad("selected");
+            }}
+          >
+            About
+          </h2>
+        </div>
+        <div className={styles.titlesMobile}>
+          {pageIsLoad === "selected" && (
+            <KeyboardArrowLeftIcon
+              className={styles.arrowBack}
+              onClick={() => {
+                SetpageIsLoad("menu");
+                SetProjectDisplayed();
+              }}
+            />
+          )}
+          <h2
+            className={
+              ActivePage === "about" && pageIsLoad === "selected"
+                ? styles.AbouttitleMobileActive
+                : pageIsLoad === "menu"
+                ? styles.AbouttitleMobileInActive
+                : styles.titlesMobileHidden
+            }
+            onClick={() => {
+              SetActivePage("about");
+              SetpageIsLoad("selected");
+            }}
+          >
+            About
+          </h2>
+          <h2
+            className={
+              ActivePage === "project" && pageIsLoad === "selected"
+                ? styles.ProjectstitleMobileActive
+                : pageIsLoad === "menu"
+                ? styles.ProjectstitleMobileInActive
+                : styles.titlesMobileHidden
+            }
+            onClick={() => {
+              SetActivePage("project");
+              SetpageIsLoad("selected");
+            }}
+          >
+            Projects
+          </h2>
+          <h2
+            className={
+              ActivePage === "contact" && pageIsLoad === "selected"
+                ? styles.ContacttitleMobileActive
+                : pageIsLoad === "menu"
+                ? styles.ContacttitleMobileInActive
+                : styles.titlesMobileHidden
+            }
+            onClick={() => {
+              SetActivePage("contact");
+              SetpageIsLoad("selected");
+            }}
+          >
+            Contact
+          </h2>
+        </div>
+        {ActivePage === "about" && pageIsLoad === "selected" && (
+          <div className={styles.PageIsLoad}>
+            <div className={styles.PageTitle}>
+              <KeyboardArrowLeftIcon
+                className={styles.BackIcon}
+                onClick={() => {
+                  SetActivePage();
+                  SetpageIsLoad("menu");
+                }}
+              ></KeyboardArrowLeftIcon>
+              <div>About</div>
+            </div>
+            <div className={styles.AboutContent}>
+              I have studied Civil engineering (Bachelor degree) and Web Design
+              & coding (associate degree) at college but since January 2022, i
+              have been improving myself in the field of front end development
+              (HTML, CSS, JavaScript, React JS and more). I have completed 10+
+              projects so far by myself including this portfolio page and all of
+              them shared publicly on my gitHub profile. Also my hosted projects
+              can be visited at Projects page <br />
+              <br />I am currently working freelance but looking for a full time
+              job. If you are interested, you can send me an E-mail easily at
+              Contact page or you can reach me via Instagram, LinkedIn (links
+              below)
+            </div>
+          </div>
+        )}
+        {ActivePage === "project" && pageIsLoad === "selected" && (
+          <div className={styles.PageIsLoad}>
+            <div className={styles.PageTitle}>
+              <KeyboardArrowLeftIcon
+                className={styles.BackIcon}
+                onClick={() => {
+                  SetActivePage();
+                  SetpageIsLoad("menu");
+                  SetProjectDisplayed();
+                }}
+              ></KeyboardArrowLeftIcon>
+              <div>Projects</div>
+            </div>
+            <div className={styles.ProjectList}>
+              {Projects.map((project) => {
+                return (
+                  <div key={project.id}>
+                    <div
+                      className={
+                        ProjectDisplayed
+                          ? styles.Hidden
+                          : styles.ProjectListItem
+                      }
+                      onClick={() => {
+                        ProjectDetailsHandler(project);
+                      }}
+                    >
+                      <div target="_blank">{project.Name}</div>
+                    </div>
+                  </div>
+                );
+              })}
+              <div className={ProjectDisplayed ? styles.test : styles.Hidden}>
+                <div className={styles.ProjectTitle}>
+                  <KeyboardArrowUpIcon
+                    className={styles.BackIcon}
+                    onClick={() => {
+                      SetProjectDisplayed();
+                    }}
+                  ></KeyboardArrowUpIcon>
+                  <a
+                    href={ProjectDisplayed?.Link}
+                    className={styles.ProjectLink}
+                  >
+                    <LinkIcon className={styles.link} />
+                    {ProjectDisplayed?.Name}
+                  </a>
+                  <br />
+                  <br />
+                </div>
+                <div className={styles.ProjectDetails}>
+                  {ProjectDisplayed?.Details} <br />
+                  <br />
+                  {ProjectDisplayed?.CodeDetails}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {ActivePage === "contact" && pageIsLoad === "selected" && (
+          <div className={styles.PageIsLoad}>
+            <div className={styles.PageTitle}>
+              <KeyboardArrowLeftIcon
+                className={styles.BackIcon}
+                onClick={() => {
+                  SetActivePage();
+                  SetpageIsLoad("menu");
+                }}
+              ></KeyboardArrowLeftIcon>
+              <div>Contact</div>
+            </div>
+            <form
+              className={styles.ContactContent}
+              ref={form}
+              onSubmit={sendEmailHandler}
+            >
+              <div className={styles.UnderContactTitle}>
+                You can reach me easily
+              </div>
+              {isFormSubmit.activeMessage === true && (
+                <div>{isFormSubmit.Message}</div>
+              )}
+              <div>
+                <div className={styles.PersonalInfoInput}>
+                  <input
+                    placeholder="Name"
+                    type="text"
+                    name="user_name"
+                    ref={Name}
+                  ></input>
+                  <input
+                    placeholder="E-mail"
+                    type="email"
+                    name="user_email"
+                    ref={Email}
+                  ></input>
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Enter your Message..."
+                  className={styles.MessageInput}
+                  ref={MessageContent}
+                ></textarea>
+              </div>
+              <button type="submit" value="Send">
+                Send
+              </button>
+              <div className={styles.ContactAlso}>
+                Also you can check my accounts below :)
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }

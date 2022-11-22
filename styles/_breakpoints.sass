@@ -1,0 +1,20 @@
+@mixin breakpoint($point)
+    @if $point == xl
+        @media (max-width: 1920px)
+            @content
+    @else if $point == lg
+        @media (max-width: 1280px)
+            @content
+    @else if $point == md
+        @media (max-width: 768px)
+            @content
+    @else if $point == md-sm
+        @media (max-width: 570px)
+            @content
+    @else if $point == sm
+        @media (max-width: 320px)
+            @content
+
+
+// lg : large , desktop ve daha geniş ekranlar için / md : medium , tablet ekranları için / sm : small telefon ekranları için
+// lg ve md aralığı desktoptan tablete geçiş aralığı. md ve sm ise tabletten mobile geçiştir.
