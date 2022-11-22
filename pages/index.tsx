@@ -123,7 +123,7 @@ export default function Home() {
 
   const [ProjectDisplayed, SetProjectDisplayed] = useState<any>();
 
-  const ProjectDetailsHandler = (project: {}) => {
+  const ProjectDetailsHandler = (project: any) => {
     SetProjectDisplayed(project);
   };
 
@@ -219,7 +219,7 @@ export default function Home() {
               className={styles.arrowBack}
               onClick={() => {
                 SetpageIsLoad("menu");
-                SetProjectDisplayed({});
+                SetProjectDisplayed();
               }}
             />
           )}
@@ -304,7 +304,7 @@ export default function Home() {
                 onClick={() => {
                   SetActivePage();
                   SetpageIsLoad("menu");
-                  SetProjectDisplayed({});
+                  SetProjectDisplayed();
                 }}
               ></KeyboardArrowLeftIcon>
               <div>Projects</div>
@@ -333,7 +333,7 @@ export default function Home() {
                   <KeyboardArrowUpIcon
                     className={styles.BackIcon}
                     onClick={() => {
-                      SetProjectDisplayed({});
+                      SetProjectDisplayed();
                     }}
                   ></KeyboardArrowUpIcon>
                   <a
