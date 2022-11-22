@@ -150,13 +150,13 @@ export default function Home() {
         </div>
         <div className={styles.RefsWrapper}>
           <a href="https://www.instagram.com/gorkemddrn/">
-            <InstagramIcon className={styles.RefImg} />
+            <InstagramIcon />
           </a>
           <a href="https://www.linkedin.com/in/gorkemderinalpaslan/">
-            <LinkedInIcon className={styles.RefImg} />
+            <LinkedInIcon />
           </a>
           <a href="https://github.com/gorkemAlpaslan">
-            <GitHubIcon className={styles.RefImg} />
+            <GitHubIcon />
           </a>
         </div>
         <div className={styles.ashesWrapper}>

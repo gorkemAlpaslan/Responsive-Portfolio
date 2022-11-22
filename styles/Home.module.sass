@@ -52,7 +52,7 @@
   bottom: 3vh
   left: 6vh
   z-index: 200
-
+  background: red
   @include breakpoint(md)
     scale: .7
     height: 25vh
@@ -70,9 +70,6 @@
     display: flex
     align-items: center
     justify-content: center
-    svg
-      width: fit-content
-      height: fit-content
     &:hover
       .RefImg
         transform: translateY(-2vh)
@@ -86,8 +83,8 @@
   @include breakpoint(md)
       
   @include breakpoint(md-sm)
-      width: 4vh
-      height: 4vh
+      width: 3vh
+      height: 3vh
 
 .ashesWrapper
   position: absolute
