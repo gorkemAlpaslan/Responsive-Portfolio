@@ -6,7 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ashes from "../public/Ashes.png";
 import gorkem from "../public/Gorkem.png";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import LinkIcon from "@mui/icons-material/Link";
@@ -14,36 +14,16 @@ import emailjs from "@emailjs/browser";
 
 export default function Home() {
   const [pageIsLoad, SetpageIsLoad] = useState<undefined | string>("menu");
-  const [ActivePage, SetActivePage] = useState();
+  const [ActivePage, SetActivePage] = useState<string | void>();
   const [isFormSubmit, SetIsFormSubmit] = useState({
     activeMessage: false,
     Message: "",
   });
-  const ProjectsRef = useRef();
-  const AboutRef = useRef();
-  const ContactRef = useRef();
 
-  const ProjectsRefMobile = useRef();
-  const AboutRefMobile = useRef();
-  const ContactRefMobile = useRef();
-
-  const form = useRef(null);
-  const Email = useRef(null);
-  const Name = useRef(null);
-  const MessageContent = useRef(null);
-
-  useEffect(() => {
-    if (pageIsLoad === "menu") {
-      ProjectsRef.current.className = styles.Projectstitle;
-      AboutRef.current.className = styles.Abouttitle;
-      ContactRef.current.className = styles.Contacttitle;
-    }
-    if (pageIsLoad === "selected") {
-      ProjectsRef.current.className = styles.ProjectstitleHidden;
-      AboutRef.current.className = styles.AbouttitleHidden;
-      ContactRef.current.className = styles.ContacttitleHidden;
-    }
-  }, [pageIsLoad]);
+  const form = useRef<HTMLInputElement | null>(null);
+  const Email = useRef<HTMLInputElement | null>(null);
+  const Name = useRef<HTMLInputElement | null>(null);
+  const MessageContent = useRef<React.ChangeEvent<HTMLInputElement>>(null);
 
   const AshesClickHandler = () => {
     if (pageIsLoad === undefined) {
@@ -53,7 +33,7 @@ export default function Home() {
     }
   };
 
-  const sendEmailHandler = (e: any) => {
+  const sendEmailHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (
       MessageContent.current?.value !== "" &&
@@ -68,10 +48,10 @@ export default function Home() {
           "Fj3Nx-NZLXGUPhan3"
         )
         .then(
-          (result: any) => {
+          (result) => {
             console.log(result.text);
           },
-          (error: any) => {
+          (error) => {
             console.log(error.text);
           }
         );
@@ -137,9 +117,9 @@ export default function Home() {
     },
   ];
 
-  const [ProjectDisplayed, SetProjectDisplayed] = useState();
+  const [ProjectDisplayed, SetProjectDisplayed] = useState<{} | void>();
 
-  const ProjectDetailsHandler = (project) => {
+  const ProjectDetailsHandler = (project: {}) => {
     SetProjectDisplayed(project);
   };
 
@@ -190,8 +170,11 @@ export default function Home() {
         </div>
         <div className={styles.titles}>
           <h2
-            className={styles.ProjectstitleHidden}
-            ref={ProjectsRef}
+            className={
+              pageIsLoad === "menu"
+                ? styles.Projectstitle
+                : styles.ProjectstitleHidden
+            }
             onClick={() => {
               SetActivePage("project");
               SetpageIsLoad("selected");
@@ -200,8 +183,11 @@ export default function Home() {
             Projects
           </h2>
           <h2
-            className={styles.ContacttitleHidden}
-            ref={ContactRef}
+            className={
+              pageIsLoad === "menu"
+                ? styles.Contacttitle
+                : styles.ContacttitleHidden
+            }
             onClick={() => {
               SetActivePage("contact");
               SetpageIsLoad("selected");
@@ -210,8 +196,11 @@ export default function Home() {
             Contact
           </h2>
           <h2
-            className={styles.AbouttitleHidden}
-            ref={AboutRef}
+            className={
+              pageIsLoad === "menu"
+                ? styles.Abouttitle
+                : styles.AbouttitleHidden
+            }
             onClick={() => {
               SetActivePage("about");
               SetpageIsLoad("selected");
@@ -330,7 +319,7 @@ export default function Home() {
                         ProjectDetailsHandler(project);
                       }}
                     >
-                      <div target="_blank">{project.Name}</div>
+                      <div>{project.Name}</div>
                     </div>
                   </div>
                 );
