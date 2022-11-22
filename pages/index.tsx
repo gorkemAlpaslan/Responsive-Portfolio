@@ -11,6 +11,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import LinkIcon from "@mui/icons-material/Link";
 import emailjs from "@emailjs/browser";
+import React from "react";
 
 export default function Home() {
   const [pageIsLoad, SetpageIsLoad] = useState<undefined | string>("menu");
@@ -20,10 +21,10 @@ export default function Home() {
     Message: "",
   });
 
-  const form = useRef<HTMLInputElement | null>(null);
-  const Email = useRef<HTMLInputElement | null>(null);
-  const Name = useRef<HTMLInputElement | null>(null);
-  const MessageContent = useRef<React.ChangeEvent<HTMLInputElement>>(null);
+  const form = React.useRef(null);
+  const Email = React.useRef<HTMLInputElement>(null);
+  const Name = React.useRef<HTMLInputElement>(null);
+  const MessageContent = React.useRef<HTMLInputElement>(null);
 
   const AshesClickHandler = () => {
     if (pageIsLoad === undefined) {
@@ -38,7 +39,8 @@ export default function Home() {
     if (
       MessageContent.current?.value !== "" &&
       Name.current?.value !== "" &&
-      Email.current?.value !== ""
+      Email.current?.value !== "" &&
+      form.current
     ) {
       emailjs
         .sendForm(
@@ -59,9 +61,11 @@ export default function Home() {
         activeMessage: true,
         Message: "Got your mail 😊",
       });
-      Name.current.value = "";
-      Email.current.value = "";
-      MessageContent.current.value = "";
+      if (Name.current && Email.current && MessageContent.current) {
+        Name.current.value = "";
+        Email.current.value = "";
+        MessageContent.current.value = "";
+      }
     } else if (Name.current?.value === "") {
       SetIsFormSubmit({
         activeMessage: true,
