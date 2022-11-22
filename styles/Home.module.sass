@@ -15,8 +15,6 @@
   @include breakpoint(md)
     background-image: url(../public/background-mobile.webp)
 
-        
-
 
 .body_container
   width: 98vw
@@ -52,7 +50,6 @@
   bottom: 3vh
   left: 6vh
   z-index: 200
-  background: red
   @include breakpoint(md)
     scale: .7
     height: 25vh
@@ -330,24 +327,39 @@ $shadows-big:    multiple-box-shadow(250)
 
 
 .AbouttitleMobileInActive
+  position: absolute
+  left: 0
+  top: 0
   transition: all ease-in-out .8s
 .ProjectstitleMobileInActive
+  position: absolute
+  left: 0
+  top: 13vh
   transition: all ease-in-out .8s 
 .ContacttitleMobileInActive
+  position: absolute
+  left: 0
+  top: 26vh
   transition: all ease-in-out .8s 
 
 
 .AbouttitleMobileActive
   transition: all ease-in-out .8s 
-  transform: translateX(33vw) translateY(-1.5vh)
+  position: absolute
+  top: 0
+  left: 30vw
   font-size: 8vw
 .ProjectstitleMobileActive
   transition: all ease-in-out .8s 
-  transform: translateX(31vw) translateY(-14vh)
+  position: absolute
+  top: 0
+  left: 30vw
   font-size: 8vw
 .ContacttitleMobileActive
   transition: all ease-in-out .8s
-  transform: translateX(32vw) translateY(-26.3vh)
+  position: absolute
+  top: 0
+  left: 30vw
   font-size: 8vw
 
 .titlesMobileHidden
@@ -528,17 +540,18 @@ $shadows-big:    multiple-box-shadow(250)
     width: 80vw
     font-size: 4vw
 
-.PersonalInfoInput input 
-  width: 14.5vw
-  height: 4vh
-  border: none
-  background: rgba(98, 148, 197, 0.7)
-  font-size: 1.5vw
-  border: 0.1vh solid #ffffff
-  color: #ffffff
-  @include breakpoint(md)
-    font-size: 3.6vw
-    width: 38vw
+.PersonalInfoInput 
+  input 
+    width: 14.5vw
+    height: 4vh
+    border: none
+    background: rgba(98, 148, 197, 0.7)
+    font-size: 1.5vw
+    border: 0.1vh solid #ffffff
+    color: #ffffff      
+    @include breakpoint(md)
+      font-size: 3.6vw
+      width: 38vw
 
 .PersonalInfoInput input::placeholder 
   padding: 0.5vh
