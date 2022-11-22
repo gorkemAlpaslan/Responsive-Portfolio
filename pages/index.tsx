@@ -24,7 +24,7 @@ export default function Home() {
   const form = React.useRef(null);
   const Email = React.useRef<HTMLInputElement>(null);
   const Name = React.useRef<HTMLInputElement>(null);
-  const MessageContent = React.useRef<HTMLInputElement>(null);
+  const MessageContent = React.useRef<any>(null);
 
   const AshesClickHandler = () => {
     if (pageIsLoad === undefined) {
@@ -121,7 +121,7 @@ export default function Home() {
     },
   ];
 
-  const [ProjectDisplayed, SetProjectDisplayed] = useState<{} | void>();
+  const [ProjectDisplayed, SetProjectDisplayed] = useState<any>();
 
   const ProjectDetailsHandler = (project: {}) => {
     SetProjectDisplayed(project);
@@ -219,7 +219,7 @@ export default function Home() {
               className={styles.arrowBack}
               onClick={() => {
                 SetpageIsLoad("menu");
-                SetProjectDisplayed();
+                SetProjectDisplayed({});
               }}
             />
           )}
@@ -304,7 +304,7 @@ export default function Home() {
                 onClick={() => {
                   SetActivePage();
                   SetpageIsLoad("menu");
-                  SetProjectDisplayed();
+                  SetProjectDisplayed({});
                 }}
               ></KeyboardArrowLeftIcon>
               <div>Projects</div>
@@ -333,7 +333,7 @@ export default function Home() {
                   <KeyboardArrowUpIcon
                     className={styles.BackIcon}
                     onClick={() => {
-                      SetProjectDisplayed();
+                      SetProjectDisplayed({});
                     }}
                   ></KeyboardArrowUpIcon>
                   <a
