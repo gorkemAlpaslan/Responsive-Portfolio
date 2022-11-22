@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.sass";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ashes from "../public/Ashes.png";
+import ashes from "../public/Ashes.webp";
 import gorkem from "../public/Gorkem.png";
 import { useRef, useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
