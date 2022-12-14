@@ -143,7 +143,7 @@ export default function Home() {
           className={styles.SideLine}
           onClick={() => {
             SetActivePage("whyash");
-            SetpageIsLoad(undefined);
+            SetpageIsLoad("selected");
           }}
         >
           why website concept is ash?
@@ -296,6 +296,29 @@ export default function Home() {
               job. If you are interested, you can send me an E-mail easily at
               Contact page or you can reach me via Instagram, LinkedIn (links
               below)
+            </div>
+          </div>
+        )}
+        {ActivePage === "whyash" && pageIsLoad === "selected" && (
+          <div className={styles.PageIsLoad}>
+            <div className={styles.PageTitle}>
+              <KeyboardArrowLeftIcon
+                className={styles.BackIcon}
+                onClick={() => {
+                  SetActivePage();
+                  SetpageIsLoad("menu");
+                }}
+              ></KeyboardArrowLeftIcon>
+              <div>Why website concept is ash?</div>
+            </div>
+            <div className={styles.AboutContent}>
+              Volcanic Ash scattered around as a result of the eruption of
+              volcanoes and many minerals come to the surface from the depths of
+              the ground. Thus, beneficial minerals and nutrients become
+              available to living species. Although it may seem harmful at
+              first, these ashes are very valuable for soil and plants. In the
+              long run, these ashes provide the creation of perhaps the most
+              productive agricultural areas on earth.
             </div>
           </div>
         )}
