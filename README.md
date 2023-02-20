@@ -1,3 +1,5 @@
+# Gorkemalpaslan-Portfolio-Page
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -30,3 +32,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+## Screenshots
+<p align="center">
+  <img width="800" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzQ0MTJkMjQ1YWMzZWZmMWU5NzI4YjZjOTZkMGQ4MGJkYjI2YTI5OSZjdD1n/9l5hoSkLF9eKwr4yBl/giphy.gif" alt="App SS 1">
+</p>
