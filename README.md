@@ -35,5 +35,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 ## Screenshots
 <p align="center">
-  <img width="800" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzQ0MTJkMjQ1YWMzZWZmMWU5NzI4YjZjOTZkMGQ4MGJkYjI2YTI5OSZjdD1n/9l5hoSkLF9eKwr4yBl/giphy.gif" alt="App SS 1">
+  <img width="800" src="https://giphy.com/gifs/9l5hoSkLF9eKwr4yBl?utm_source=media-link&utm_medium=landing&utm_campaign=Media%20Links&utm_term=" alt="App SS 1">
 </p>
