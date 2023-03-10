@@ -364,13 +364,9 @@ export default function Home() {
                       SetProjectDisplayed({});
                     }}
                   ></KeyboardArrowUpIcon>
-                  <a
-                    href={ProjectDisplayed?.Link}
-                    className={styles.ProjectLink}
-                  >
-                    <LinkIcon className={styles.link} />
+                  <div className={styles.ProjectLink}>
                     {ProjectDisplayed?.Name}
-                  </a>
+                  </div>
                   <br />
                   <br />
                 </div>
@@ -378,6 +374,16 @@ export default function Home() {
                   {ProjectDisplayed?.Details} <br />
                   <br />
                   {ProjectDisplayed?.CodeDetails}
+                  <br />
+                  <br />
+                  <div className={styles.ProjectLinks}>
+                    <LinkIcon className={styles.ProjectLinkIcon} />
+                    {
+                      <a href={ProjectDisplayed?.Link}>
+                        Visit The Project Page
+                      </a>
+                    }
+                  </div>
                 </div>
               </div>
             </div>

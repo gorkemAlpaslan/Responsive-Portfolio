@@ -23,9 +23,8 @@
 .MainTitle
   position: absolute
   margin: 3vw
-  font-size: 3vw
-  letter-spacing: -0.06vh
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-size: 3vw !important
+  letter-spacing: -0.06vh !important
   @include breakpoint(md)
     display: none
 
@@ -447,6 +446,18 @@ $shadows-big: multiple-box-shadow(250)
   margin-left: 9vh
   font-size: 2vh
   letter-spacing: 0.2vh
+.ProjectLinks
+  display: flex
+  align-items: center
+  width: fit-content
+  font-size: 22px
+  text-decoration: none
+  &:hover
+    color: rgba(255, 115, 0, 0.945)
+    text-decoration: underline
+
+  .ProjectLinkIcon
+    transform: rotate(90deg)
 
 .ContactContent
   display: flex
