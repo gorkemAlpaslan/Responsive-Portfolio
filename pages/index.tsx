@@ -114,7 +114,7 @@ export default function Home() {
     {
       id: 4,
       Name: "Popup Generator",
-      Link: "https://636e3ba16d353d089be6df04--storied-cobbler-6dd078.netlify.app",
+      Link: "https://storied-cobbler-6dd078.netlify.app",
       Details:
         "This project was final case of a practicum (Patika - PopUpSmart). the logic is providing a enviroment that any user can select a template and customize a popup screen and get the script code of the popup he/she customized",
       CodeDetails: "",
