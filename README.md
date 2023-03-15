@@ -1,5 +1,5 @@
 
-# React Expense List
+## Protfolio Page
 
 This project is a responsive portfolio website built using Next.js, TypeScript. The website includes three pages - About, Projects, and Contact. The About page includes a brief introduction. The Projects page includes a list of my Projects with links to the websites of these projects. The Contact page includes a contact form.
 
