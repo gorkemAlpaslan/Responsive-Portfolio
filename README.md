@@ -8,6 +8,10 @@ This is my personal portfolio website that showcases my skills and projects as a
 
 To view the live version of the website, please visit https://www.gorkemalpaslan.com/. Once on the website, you can navigate through the different sections to learn more about me, my skills, and my projects and contact with me.
 
+## Screenshots
+<p align="center">
+  <img src="https://www.resimupload.org/images/2023/02/20/17be0a60a1c380133.png" alt="App SS 1">
+</p>
 
 # Technologies Used
 
@@ -22,7 +26,4 @@ This project is mainly intended for personal use, but if you would like to contr
 
 If you have any questions or feedback, please feel free to reach out to me via email at gorkem.alpaslan98@gmail.com Thank you for visiting my portfolio website!
 
-## Screenshots
-<p align="center">
-  <img src="https://www.resimupload.org/images/2023/02/20/17be0a60a1c380133.png" alt="App SS 1">
-</p>
+
