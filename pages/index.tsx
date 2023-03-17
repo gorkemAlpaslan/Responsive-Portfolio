@@ -38,7 +38,7 @@ export default function Home() {
     {
       id: 1,
       Name: "SplendShop",
-      Link: "https://graceful-flan-8ed3f8.netlify.app/homepage",
+      Link: "https://main--graceful-flan-8ed3f8.netlify.app/homepage",
       Details:
         "SplendShop is a basic e-commercial site that is designed and coded by me. I can tell that journey of becoming a React developer started by coding this web app, so the code may not be that clean but SplendShop is working and it improved me realy good to me.",
       CodeDetails:
@@ -59,7 +59,8 @@ export default function Home() {
       Link: "https://jade-baklava-7a2e68.netlify.app",
       Details:
         "Expense list is a basic project that user can Add new expenses with a title, amount and date. Then user can check his/her expenses listed and also a Bar Graph of them monthly.",
-      CodeDetails: "",
+      CodeDetails:
+        "React-Expense-List was developed using the React.js library.",
     },
     {
       id: 4,
@@ -67,7 +68,17 @@ export default function Home() {
       Link: "https://storied-cobbler-6dd078.netlify.app",
       Details:
         "This project was final case of a practicum (Patika - PopUpSmart). the logic is providing a enviroment that any user can select a template and customize a popup screen and get the script code of the popup he/she customized",
-      CodeDetails: "",
+      CodeDetails:
+        "This project was built using TypeScript, Next.js, React, HTML, CSS, JavaScript, Tailwind, SASS.",
+    },
+    {
+      id: 5,
+      Name: "Rekt",
+      Link: "https://jovial-cucurucho-0769b4.netlify.app/",
+      Details:
+        "REKT is a website developed for a company that provides information about the company's services and employees. The website provides a functional user interface, although the code structure may not be perfect.",
+      CodeDetails:
+        "Please note that the code structure of the website may not be optimal. As an amateur developer at the time of coding, I did my best to provide a functional user interface, but the code may not be structured in the most efficient manner. That being said, the website is easy to understand and modify, and I am committed to improving my skills and code quality in the future.",
     },
   ];
 
