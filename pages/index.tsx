@@ -84,10 +84,8 @@ export default function Home() {
       id: 56,
       Name: "Splend-Game",
       Link: "https://main--lambent-narwhal-f3b63d.netlify.app",
-      Details:
-        "REKT is a website developed for a company that provides information about the company's services and employees. The website provides a functional user interface, although the code structure may not be perfect.",
-      CodeDetails:
-        "Please note that the code structure of the website may not be optimal. As an amateur developer at the time of coding, I did my best to provide a functional user interface, but the code may not be structured in the most efficient manner. That being said, the website is easy to understand and modify, and I am committed to improving my skills and code quality in the future.",
+      Details: "Coming Soon but page is live !",
+      CodeDetails: "Coming Soon",
     },
   ];
 
