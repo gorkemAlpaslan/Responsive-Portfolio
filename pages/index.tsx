@@ -88,7 +88,7 @@ export default function Home() {
         "The web page I designed for EightEleven is currently in a static structure, providing an attractive platform that reflects the client's brand identity. The product data used on the website is currently hard-coded and included in the project. However, in the future stages of the project, backend integration will be performed, an admin panel will be added, and the site will be gradually enhanced with various features. For example, it will evolve into a dynamic site with functionalities like user registration and ordering. This web page has been developed using modern technologies. Context has been used for state management, and i18Next has been preferred for language localization. During the coding process, Next.js framework with TypeScript was used to ensure a more secure and robust code structure. This project showcases a carefully designed website example aimed at strengthening EightEleven's online presence and reflecting its brand value. Our future plans include adding dynamic features to increase user interaction on the website. This project in my portfolio serves as an example of what I can achieve with my web design and development skills in future projects.",
     },
     {
-      id: 7,
+      id: 8,
       Name: "⭐ Vistras (Ongoing Project)",
       Link: "https://vistras.vercel.app/",
       Details:
@@ -152,6 +152,7 @@ export default function Home() {
 
   const ProjectDetailsHandler = (project: any) => {
     SetProjectDisplayed(project);
+    console.log(ProjectDisplayed.Name === "⭐ EightEleven");
   };
 
   return (
@@ -395,7 +396,12 @@ export default function Home() {
                   <br />
                   <br />
                 </div>
-                <div className={styles.ProjectDetails}>
+                <div
+                  className={`${styles.ProjectDetails} ${
+                    ProjectDisplayed.Name === "⭐ EightEleven" &&
+                    styles.detailsSmall
+                  }`}
+                >
                   {ProjectDisplayed?.Details} <br />
                   <br />
                   {ProjectDisplayed?.CodeDetails}
