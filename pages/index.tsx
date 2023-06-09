@@ -14,7 +14,7 @@ import emailjs from "@emailjs/browser";
 import React from "react";
 
 export default function Home() {
-  const [pageIsLoad, SetpageIsLoad] = useState<undefined | string>("menu");
+  const [pageIsLoad, SetpageIsLoad] = useState<string>("menu");
   const [ActivePage, SetActivePage] = useState<string | void>();
   const [isFormSubmit, SetIsFormSubmit] = useState({
     activeMessage: false,
@@ -25,14 +25,6 @@ export default function Home() {
   const Email = React.useRef<HTMLInputElement>(null);
   const Name = React.useRef<HTMLInputElement>(null);
   const MessageContent = React.useRef<any>(null);
-
-  const AshesClickHandler = () => {
-    if (pageIsLoad === undefined) {
-      SetpageIsLoad("menu");
-    } else {
-      SetpageIsLoad(undefined);
-    }
-  };
 
   const Projects = [
     {
@@ -84,20 +76,20 @@ export default function Home() {
       id: 6,
       Name: "Splend-Game",
       Link: "https://main--lambent-narwhal-f3b63d.netlify.app",
-      Details: "Coming Soon but page is live !",
-      CodeDetails: "Coming Soon",
+      Details: `The game consists of 16x16 (256 boxes) map. The values in the boxes you open add up and this is you score. The aim is to reach the target values in each round, you can see the target values on the counter. You can close 10 boxes that you open in each round. You can also reset the round if you feel unlucky, but beware, you cannot reset the game after you have used 5 of your closes. once your close rights run out, the point will add up to your total win counter (+1 for first target, +2 for second target, +3 for third target). you can also retreat once you reach first target. if you couldn't reach even first target, you will have a +1 point to your losses counter`,
+      CodeDetails: "You can visit my GitHub profile to check it's code",
     },
     {
       id: 7,
-      Name: "EightEleven",
+      Name: "⭐ EightEleven",
       Link: "https://theighteleven.com/",
       Details: "The Eight&Eleven Web Page is also done by me",
       CodeDetails:
-        "I have used Next.js, Typescript on this project. used ContextAPI for state management, used I18Next for language pack.",
+        "The web page I designed for EightEleven is currently in a static structure, providing an attractive platform that reflects the client's brand identity. The product data used on the website is currently hard-coded and included in the project. However, in the future stages of the project, backend integration will be performed, an admin panel will be added, and the site will be gradually enhanced with various features. For example, it will evolve into a dynamic site with functionalities like user registration and ordering. This web page has been developed using modern technologies. Context has been used for state management, and i18Next has been preferred for language localization. During the coding process, Next.js framework with TypeScript was used to ensure a more secure and robust code structure. This project showcases a carefully designed website example aimed at strengthening EightEleven's online presence and reflecting its brand value. Our future plans include adding dynamic features to increase user interaction on the website. This project in my portfolio serves as an example of what I can achieve with my web design and development skills in future projects.",
     },
     {
       id: 7,
-      Name: "Vistras (Ongoing Project)",
+      Name: "⭐ Vistras (Ongoing Project)",
       Link: "https://vistras.vercel.app/",
       Details:
         "Vistras is also a page that i am recently working on to improve my skills and use the features i learn",
@@ -199,14 +191,7 @@ export default function Home() {
           <div id={styles.stars2}></div>
           <div id={styles.stars3}></div>
         </div>
-        <div>
-          <Image
-            alt="ashes"
-            src={ashes}
-            className={styles.smoke}
-            onClick={AshesClickHandler}
-          />
-        </div>
+
         <div className={styles.test}>
           <Image alt="Name" src={gorkem} className={styles.NameAsImg}></Image>
         </div>
