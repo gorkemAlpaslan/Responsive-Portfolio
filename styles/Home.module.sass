@@ -448,7 +448,7 @@ $shadows-big: multiple-box-shadow(250)
 .ProjectDetails
   margin-top: 2vh
   margin-left: 9vh
-  font-size: 4vw
+  font-size: 2vh
 
 .ProjectLinks
   display: flex
@@ -572,4 +572,6 @@ $shadows-big: multiple-box-shadow(250)
   color: transparent
 
 .detailsSmall
-  font-size: 3.2vw
+
+  @include breakpoint(md)
+    font-size: 3.2vw
