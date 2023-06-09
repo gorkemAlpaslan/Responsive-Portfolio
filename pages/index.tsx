@@ -81,11 +81,28 @@ export default function Home() {
         "Please note that the code structure of the website may not be optimal. As an amateur developer at the time of coding, I did my best to provide a functional user interface, but the code may not be structured in the most efficient manner. That being said, the website is easy to understand and modify, and I am committed to improving my skills and code quality in the future.",
     },
     {
-      id: 56,
+      id: 6,
       Name: "Splend-Game",
       Link: "https://main--lambent-narwhal-f3b63d.netlify.app",
       Details: "Coming Soon but page is live !",
       CodeDetails: "Coming Soon",
+    },
+    {
+      id: 7,
+      Name: "EightEleven",
+      Link: "https://theighteleven.com/",
+      Details: "The Eight&Eleven Web Page is also done by me",
+      CodeDetails:
+        "I have used Next.js, Typescript on this project. used ContextAPI for state management, used I18Next for language pack.",
+    },
+    {
+      id: 7,
+      Name: "Vistras (Ongoing Project)",
+      Link: "https://vistras.vercel.app/",
+      Details:
+        "Vistras is also a page that i am recently working on to improve my skills and use the features i learn",
+      CodeDetails:
+        "I have used Next.js, Typescript on this project. I am aiming to use firebase for authentication, save items datas (JSON and images for items). also i will use next api to create my endpoints and connect them to firebase endpoints.",
     },
   ];
 
@@ -372,8 +389,13 @@ export default function Home() {
                   </div>
                 );
               })}
+
               <div
-                className={ProjectDisplayed.Name ? styles.test : styles.Hidden}
+                className={
+                  ProjectDisplayed.Name
+                    ? styles.projectDisplayIsActive
+                    : styles.Hidden
+                }
               >
                 <div className={styles.ProjectTitle}>
                   <KeyboardArrowUpIcon
