@@ -345,10 +345,12 @@ $shadows-big: multiple-box-shadow(250)
   margin: 10vh
   animation: pageLoader 0.5s linear
   @include breakpoint(md)
-    width: auto
+    width: 80%
     height: auto
     margin: 0
     top: 14vh
+    left: 50%
+    transform: translateX(-50%)
 
 @keyframes pageLoader
   0%
@@ -373,14 +375,14 @@ $shadows-big: multiple-box-shadow(250)
     color: rgba(255, 115, 0, 0.945)
 
 .AboutContent
-  font-size: 2.5vh
+  font-size: 2vh
   margin: 4vh 8vh
-  letter-spacing: 0.25vh
   @include breakpoint(md)
-    font-size: 2.5vh
+    font-size: 1.6vh
   @include breakpoint(md-sm)
-    font-size: 2vh
+    font-size: 1.6vh
     margin: 2vh 12vw
+    width: 80%
 
 .ProjectList
   overflow-wrap: break-word
@@ -389,7 +391,7 @@ $shadows-big: multiple-box-shadow(250)
   grid-template-columns: 24% 24% 24%
   justify-content: space-around
   @include breakpoint(md)
-    grid-template-columns: 44% 44%
+    grid-template-columns: 49% 49%
 
 .ProjectListItem
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
@@ -398,8 +400,9 @@ $shadows-big: multiple-box-shadow(250)
   width: fit-content
   padding: 20px
   margin: 10px
-  font-size: 22px
+  font-size: 15px
   position: relative
+  width: 100%
   &::before
     content: ""
     position: absolute
@@ -413,6 +416,8 @@ $shadows-big: multiple-box-shadow(250)
   &:hover
     &::before
       opacity: .5
+  @include breakpoint(md)
+    font-size: 11px
 
 .ProjectListItem:hover
   color: rgba(255, 115, 0, 0.945)
@@ -470,9 +475,10 @@ $shadows-big: multiple-box-shadow(250)
   width: 35vw
   margin-left: 4.5vw
   @include breakpoint(md)
-    width: 88vw
+    width: 80vw
     font-size: 4vw
     align-items: center
+    margin-left: 0vw
 
 .ContactContent button
   width: 30vw

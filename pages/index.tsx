@@ -81,7 +81,7 @@ export default function Home() {
     },
     {
       id: 7,
-      Name: "⭐ EightEleven",
+      Name: " EightEleven",
       Link: "https://theighteleven.com/",
       Details: "The Eight&Eleven Web Page is also done by me",
       CodeDetails:
@@ -89,7 +89,7 @@ export default function Home() {
     },
     {
       id: 8,
-      Name: "⭐ Vistras (Ongoing Project)",
+      Name: " Vistras",
       Link: "https://vistras.vercel.app/",
       Details:
         "Vistras is also a page that i am recently working on to improve my skills and use the features i learn",
@@ -152,7 +152,7 @@ export default function Home() {
 
   const ProjectDetailsHandler = (project: any) => {
     SetProjectDisplayed(project);
-    console.log(ProjectDisplayed.Name === "⭐ EightEleven");
+    console.log(ProjectDisplayed.Name === " EightEleven");
   };
 
   return (
@@ -398,7 +398,7 @@ export default function Home() {
                 </div>
                 <div
                   className={`${styles.ProjectDetails} ${
-                    ProjectDisplayed.Name === "⭐ EightEleven" &&
+                    ProjectDisplayed.Name === " EightEleven" &&
                     styles.detailsSmall
                   }`}
                 >
