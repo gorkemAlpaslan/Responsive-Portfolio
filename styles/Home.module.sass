@@ -65,16 +65,19 @@
     display: flex
     align-items: center
     justify-content: center
+    transition: linear all .3s
+    transform: translateY(0vh)
     &:hover
       .RefImg
         transform: translateY(-2vh)
+        transition: linear all .3s
         color: rgba(245, 69, 0, 0.884)
 
 .RefImg
   color: #ffffff
   width: 6vh
   height: 6vh
-  transition: color ease-in-out 0.1s, bottom 0.1s
+  transition: linear all .3s
 
   @include breakpoint(md)
 
@@ -217,7 +220,6 @@ $shadows-big: multiple-box-shadow(250)
   transition: all ease-in-out 0.6s
   opacity: 0.8
   cursor: pointer
-
   &:hover
     transform: translateX(1vh) translateY(-2vh)
     z-index: 80
@@ -243,6 +245,7 @@ $shadows-big: multiple-box-shadow(250)
     transform: translateX(3vh) translateY(-2vh)
     z-index: 80
     opacity: 1
+    scale: 1.2
 
   @include breakpoint(lg)
     left: 21vw
@@ -266,6 +269,7 @@ $shadows-big: multiple-box-shadow(250)
     transform: translateX(-3vh) translateY(-2vh)
     z-index: 80
     opacity: 1
+    scale: 1.2
   @include breakpoint(lg)
     left: -18vw
     top: 1vh
@@ -377,13 +381,17 @@ $shadows-big: multiple-box-shadow(250)
 .AboutContent
   font-size: 2vh
   margin: 4vh 8vh
+  display: inline
   @include breakpoint(md)
     font-size: 1.6vh
   @include breakpoint(md-sm)
     font-size: 1.6vh
     margin: 2vh 12vw
     width: 80%
-
+.AboutContent span
+  font-weight: 800
+  text-decoration: underline
+  cursor: pointer
 .ProjectList
   overflow-wrap: break-word
   list-style: none

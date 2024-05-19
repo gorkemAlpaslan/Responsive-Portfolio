@@ -51,8 +51,7 @@ export default function Home() {
       Link: "https://jade-baklava-7a2e68.netlify.app",
       Details:
         "Expense list is a basic project that user can Add new expenses with a title, amount and date. Then user can check his/her expenses listed and also a Bar Graph of them monthly.",
-      CodeDetails:
-        "React-Expense-List was developed using the React.js library.",
+      CodeDetails: "React-Expense-List was developed using the React.js library.",
     },
     {
       id: 4,
@@ -60,8 +59,7 @@ export default function Home() {
       Link: "https://storied-cobbler-6dd078.netlify.app",
       Details:
         "This project was final case of a practicum (Patika - PopUpSmart). the logic is providing a enviroment that any user can select a template and customize a popup screen and get the script code of the popup he/she customized",
-      CodeDetails:
-        "This project was built using TypeScript, Next.js, React, HTML, CSS, JavaScript, Tailwind, SASS.",
+      CodeDetails: "This project was built using TypeScript, Next.js, React, HTML, CSS, JavaScript, Tailwind, SASS.",
     },
     {
       id: 5,
@@ -91,8 +89,7 @@ export default function Home() {
       id: 8,
       Name: " Vistras",
       Link: "https://vistras.vercel.app/",
-      Details:
-        "Vistras is also a page that i am recently working on to improve my skills and use the features i learn",
+      Details: "Vistras is also a page that i am recently working on to improve my skills and use the features i learn",
       CodeDetails:
         "I have used Next.js, Typescript on this project. I am aiming to use firebase for authentication, save items datas (JSON and images for items). also i will use next api to create my endpoints and connect them to firebase endpoints.",
     },
@@ -106,21 +103,14 @@ export default function Home() {
       Email.current?.value !== "" &&
       form.current
     ) {
-      emailjs
-        .sendForm(
-          "service_gktrxa2",
-          "template_x9bpnrx",
-          form.current,
-          "Fj3Nx-NZLXGUPhan3"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+      emailjs.sendForm("service_gktrxa2", "template_x9bpnrx", form.current, "Fj3Nx-NZLXGUPhan3").then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
       SetIsFormSubmit({
         activeMessage: true,
         Message: "Got your mail 😊",
@@ -159,10 +149,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Gorkem Derin Alpaslan</title>
-        <meta
-          name="description"
-          content="Gorkem Derin Alpaslan Portfolio Page"
-        />
+        <meta name="description" content="Gorkem Derin Alpaslan Portfolio Page" />
         <link rel="icon" href="/Ashes.webp" />
       </Head>
       <div className={styles.body_container}>
@@ -198,11 +185,7 @@ export default function Home() {
         </div>
         <div className={styles.titles}>
           <h2
-            className={
-              pageIsLoad === "menu"
-                ? styles.Projectstitle
-                : styles.ProjectstitleHidden
-            }
+            className={pageIsLoad === "menu" ? styles.Projectstitle : styles.ProjectstitleHidden}
             onClick={() => {
               SetActivePage("project");
               SetpageIsLoad("selected");
@@ -211,11 +194,7 @@ export default function Home() {
             Projects
           </h2>
           <h2
-            className={
-              pageIsLoad === "menu"
-                ? styles.Contacttitle
-                : styles.ContacttitleHidden
-            }
+            className={pageIsLoad === "menu" ? styles.Contacttitle : styles.ContacttitleHidden}
             onClick={() => {
               SetActivePage("contact");
               SetpageIsLoad("selected");
@@ -224,11 +203,7 @@ export default function Home() {
             Contact
           </h2>
           <h2
-            className={
-              pageIsLoad === "menu"
-                ? styles.Abouttitle
-                : styles.AbouttitleHidden
-            }
+            className={pageIsLoad === "menu" ? styles.Abouttitle : styles.AbouttitleHidden}
             onClick={() => {
               SetActivePage("about");
               SetpageIsLoad("selected");
@@ -306,17 +281,27 @@ export default function Home() {
               <div>About</div>
             </div>
             <div className={styles.AboutContent}>
-              I have studied Civil engineering (Bachelor degree) and Web Design
-              & coding (associate degree) at college but since January 2022, i
-              have been improving myself in the field of front end development
-              (HTML, CSS, JavaScript, React JS and more). I have completed 10+
-              projects so far by myself including this portfolio page and all of
-              them shared publicly on my gitHub profile. Also my hosted projects
-              can be visited at Projects page <br />
-              <br />I am currently working freelance but looking for a full time
-              job. If you are interested, you can send me an E-mail easily at
-              Contact page or you can reach me via Instagram, LinkedIn (links
-              below)
+              <p>
+                Hello! I'm Gorkem Derin Alpaslan, a passionate frontend developer dedicated to creating outstanding
+                e-commerce experiences. With years of experience working with over 150 popular e-commerce brands, I
+                specialize in managing, coding, and implementing custom solutions to meet clients' specific needs. My
+                expertise spans redesigning, optimizing, and enhancing web pages to deliver seamless, user-friendly
+                experiences. I thrive on turning client visions into reality through innovative design and cutting-edge
+                technology. Explore my work and learn more about my projects at &nbsp;{" "}
+                <span
+                  onClick={() => {
+                    SetActivePage("project");
+                    SetpageIsLoad("selected");
+                  }}
+                >
+                  Projects page
+                </span>
+                &nbsp; and connect with me on &nbsp;
+                <span>
+                  <a href="https://www.linkedin.com/in/gorkemderinalpaslan/">LinkedIn</a>
+                </span>
+                .
+              </p>
             </div>
           </div>
         )}
@@ -333,13 +318,10 @@ export default function Home() {
               <div>Why website concept is ash?</div>
             </div>
             <div className={styles.AboutContent}>
-              Volcanic Ash scattered around as a result of the eruption of
-              volcanoes and many minerals come to the surface from the depths of
-              the ground. Thus, beneficial minerals and nutrients become
-              available to living species. Although it may seem harmful at
-              first, these ashes are very valuable for soil and plants. In the
-              long run, these ashes provide the creation of perhaps the most
-              productive agricultural areas on earth.
+              Volcanic Ash scattered around as a result of the eruption of volcanoes and many minerals come to the
+              surface from the depths of the ground. Thus, beneficial minerals and nutrients become available to living
+              species. Although it may seem harmful at first, these ashes are very valuable for soil and plants. In the
+              long run, these ashes provide the creation of perhaps the most productive agricultural areas on earth.
             </div>
           </div>
         )}
@@ -361,11 +343,7 @@ export default function Home() {
                 return (
                   <div key={project.id}>
                     <div
-                      className={
-                        ProjectDisplayed.Name
-                          ? styles.Hidden
-                          : styles.ProjectListItem
-                      }
+                      className={ProjectDisplayed.Name ? styles.Hidden : styles.ProjectListItem}
                       onClick={() => {
                         ProjectDetailsHandler(project);
                       }}
@@ -376,13 +354,7 @@ export default function Home() {
                 );
               })}
 
-              <div
-                className={
-                  ProjectDisplayed.Name
-                    ? styles.projectDisplayIsActive
-                    : styles.Hidden
-                }
-              >
+              <div className={ProjectDisplayed.Name ? styles.projectDisplayIsActive : styles.Hidden}>
                 <div className={styles.ProjectTitle}>
                   <KeyboardArrowUpIcon
                     className={styles.BackIcon}
@@ -390,16 +362,13 @@ export default function Home() {
                       SetProjectDisplayed({});
                     }}
                   ></KeyboardArrowUpIcon>
-                  <div className={styles.ProjectLink}>
-                    {ProjectDisplayed?.Name}
-                  </div>
+                  <div className={styles.ProjectLink}>{ProjectDisplayed?.Name}</div>
                   <br />
                   <br />
                 </div>
                 <div
                   className={`${styles.ProjectDetails} ${
-                    ProjectDisplayed.Name === " EightEleven" &&
-                    styles.detailsSmall
+                    ProjectDisplayed.Name === " EightEleven" && styles.detailsSmall
                   }`}
                 >
                   {ProjectDisplayed?.Details} <br />
@@ -409,11 +378,7 @@ export default function Home() {
                   <br />
                   <div className={styles.ProjectLinks}>
                     <LinkIcon className={styles.ProjectLinkIcon} />
-                    {
-                      <a href={ProjectDisplayed?.Link}>
-                        Visit The Project Page
-                      </a>
-                    }
+                    {<a href={ProjectDisplayed?.Link}>Visit The Project Page</a>}
                   </div>
                 </div>
               </div>
@@ -432,31 +397,13 @@ export default function Home() {
               ></KeyboardArrowLeftIcon>
               <div>Contact</div>
             </div>
-            <form
-              className={styles.ContactContent}
-              ref={form}
-              onSubmit={sendEmailHandler}
-            >
-              <div className={styles.UnderContactTitle}>
-                You can reach me easily
-              </div>
-              {isFormSubmit.activeMessage === true && (
-                <div>{isFormSubmit.Message}</div>
-              )}
+            <form className={styles.ContactContent} ref={form} onSubmit={sendEmailHandler}>
+              <div className={styles.UnderContactTitle}>You can reach me easily</div>
+              {isFormSubmit.activeMessage === true && <div>{isFormSubmit.Message}</div>}
               <div>
                 <div className={styles.PersonalInfoInput}>
-                  <input
-                    placeholder="Name"
-                    type="text"
-                    name="user_name"
-                    ref={Name}
-                  ></input>
-                  <input
-                    placeholder="E-mail"
-                    type="email"
-                    name="user_email"
-                    ref={Email}
-                  ></input>
+                  <input placeholder="Name" type="text" name="user_name" ref={Name}></input>
+                  <input placeholder="E-mail" type="email" name="user_email" ref={Email}></input>
                 </div>
                 <textarea
                   name="message"
@@ -468,9 +415,7 @@ export default function Home() {
               <button type="submit" value="Send">
                 Send
               </button>
-              <div className={styles.ContactAlso}>
-                Also you can check my accounts below :)
-              </div>
+              <div className={styles.ContactAlso}>Also you can check my accounts below :)</div>
             </form>
           </div>
         )}
