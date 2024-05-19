@@ -282,9 +282,9 @@ export default function Home() {
             </div>
             <div className={styles.AboutContent}>
               <p>
-                Hello! I'm Gorkem Derin Alpaslan, a passionate frontend developer dedicated to creating outstanding
+                Hello! I am Gorkem Derin Alpaslan, a passionate frontend developer dedicated to creating outstanding
                 e-commerce experiences. With years of experience working with over 150 popular e-commerce brands, I
-                specialize in managing, coding, and implementing custom solutions to meet clients' specific needs. My
+                specialize in managing, coding, and implementing custom solutions to meet clients specific needs. My
                 expertise spans redesigning, optimizing, and enhancing web pages to deliver seamless, user-friendly
                 experiences. I thrive on turning client visions into reality through innovative design and cutting-edge
                 technology. Explore my work and learn more about my projects at &nbsp;{" "}
