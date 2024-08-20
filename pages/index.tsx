@@ -6,6 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ashes from "../public/Ashes.webp";
 import gorkem from "../public/Gorkem.png";
+import codepenIco from "../public/logo-white.png";
 import { useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -172,6 +173,9 @@ export default function Home() {
           </a>
           <a href="https://github.com/gorkemAlpaslan">
             <GitHubIcon className={styles.RefImg} />
+          </a>
+          <a href="https://codepen.io/gorkemalpaslan">
+            <Image width={40} height={40} alt="codepen" className={styles.RefImg} src={codepenIco}></Image>
           </a>
         </div>
         <div className={styles.ashesWrapper}>
