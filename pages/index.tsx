@@ -175,7 +175,7 @@ export default function Home() {
             <GitHubIcon className={styles.RefImg} />
           </a>
           <a href="https://codepen.io/gorkemalpaslan">
-            <Image width={40} height={40} alt="codepen" className={styles.RefImg} src={codepenIco}></Image>
+            <Image width={30} height={30} alt="codepen" className={styles.RefImg} src={codepenIco}></Image>
           </a>
         </div>
         <div className={styles.ashesWrapper}>
